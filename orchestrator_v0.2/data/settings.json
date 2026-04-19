@@ -1,0 +1,32 @@
+{
+  "default": {
+    "system_prompt": "You are a helpful AI assistant.",
+    "provider": "auto",
+    "temperature": 0.4,
+    "allow_tools": true,
+    "allow_cloud": true,
+    "main_provider": "local",
+    "team_members": [
+      {
+        "name": "Main AI",
+        "provider": "local",
+        "role": "leader"
+      },
+      {
+        "name": "Gemini",
+        "provider": "gemini",
+        "role": "advisor"
+      },
+      {
+        "name": "Coder",
+        "provider": "local",
+        "role": "coder"
+      },
+      {
+        "name": "Planner",
+        "provider": "gemini",
+        "role": "planner"
+      }
+    ]
+  }
+}

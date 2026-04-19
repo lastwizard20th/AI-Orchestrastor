@@ -1,0 +1,33 @@
+<!-- templates/workgroup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Work Group Builder</title>
+<link rel="stylesheet" href="/static/css/workgroup.css">
+</head>
+<body>
+
+<div class="topbar">
+    <select id="groupList"></select>
+    <button onclick="addNode()">+ Node</button>
+    <button onclick="runGraph()">▶ Run Graph</button>
+    <a href="/">← Dashboard</a>
+</div>
+
+<div id="canvasWrap">
+    <svg id="lines"></svg>
+    <div id="canvas"></div>
+</div>
+
+<div class="panel">
+    <h3>Team Chat Logs</h3>
+    <div id="logBox"></div>
+
+    <h3>Final Answer</h3>
+    <pre id="finalBox"></pre>
+</div>
+
+<script src="/static/js/workgroup.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Planner Pro</title>
+<link rel='stylesheet' href='/static/css/planner.css'>
+</head><body>
+<div class='topbar'>
+ <a href='/'>← Dashboard</a>
+ <button onclick='changeWeek(-1)'>◀</button>
+ <h2 id='weekLabel'>Week</h2>
+ <button onclick='changeWeek(1)'>▶</button>
+ <button onclick='autoSchedule()'>AI Auto Schedule</button>
+</div>
+<div id='plannerWrap'><div id='nowLine'></div><div id='planner'></div></div>
+<script src='/static/js/planner.js'></script>
+</body></html>

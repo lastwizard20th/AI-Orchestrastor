@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Team OS</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- LEFT DOCK -->
+  <aside class="dock">
+    <button onclick="switchMainView('chat')">💬</button>
+    <button onclick="switchMainView('providers')">🔌</button>
+    <button onclick="switchMainView('tasks')">📅</button>
+    <button onclick="switchMainView('memory')">🧠</button>
+    <button onclick="switchMainView('files')">📁</button>
+    <button onclick="toggleSettings()">⚙</button>
+  </aside>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">AI TEAM OS</div>
+
+    <button class="w100 mb8" onclick="newSession()">+ New Chat</button>
+
+    <div class="section-title">Sessions</div>
+    <div id="sessions"></div>
+
+    <div class="section-title mt16">Team Members</div>
+    <div id="teamMembers"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-panel">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="left-top">
+        <span>Intent: <b id="intent">-</b></span>
+        <span>Provider: <b id="provider">-</b></span>
+      </div>
+
+      <div class="center-top">
+        <button id="tabPrivate" class="tab active" onclick="switchChatMode('private')">
+          Private Chat
+        </button>
+
+        <button id="tabTeam" class="tab" onclick="switchChatMode('team')">
+          Team Room
+        </button>
+      </div>
+
+      <div class="right-top">
+        <select id="mode">
+          <option value="auto">Auto</option>
+          <option value="local">Local</option>
+          <option value="cloud">Cloud</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CHAT VIEW -->
+    <section id="view-chat" class="view">
+      <div id="chatTitle" class="chat-title">
+        Talking with Main AI
+      </div>
+
+      <div id="chat" class="chat-box"></div>
+
+      <div class="composer">
+        <textarea id="msg" placeholder="Type message..."></textarea>
+        <button onclick="sendMsg()">Send</button>
+      </div>
+    </section>
+    <!-- PROVIDERS VIEW -->
+    <section id="view-providers" class="view hidden">
+  <div class="toolbar">
+    <button onclick="newProvider()">+ Add Provider</button>
+    <button onclick="loadProviders()">Refresh</button>
+  </div>
+
+  <div class="provider-layout">
+
+    <div class="provider-list" id="providerList"></div>
+
+    <div class="provider-editor">
+      <input id="pv_name" placeholder="Name">
+
+      <select id="pv_type">
+        <option value="ollama">ollama</option>
+        <option value="gemini">gemini</option>
+        <option value="openai">openai</option>
+        <option value="claude">claude</option>
+      </select>
+
+      <input id="pv_url" placeholder="URL / Endpoint">
+      <input id="pv_key" placeholder="API Key">
+      <input id="pv_model" placeholder="Model">
+
+      <label>
+        <input type="checkbox" id="pv_enabled" checked>
+        Enabled
+      </label>
+
+      <button onclick="saveProvider()">Save</button>
+      <button onclick="testProvider()">Test</button>
+      <button onclick="deleteProviderUI()">Delete</button>
+
+      <pre id="providerStatus"></pre>
+    </div>
+
+  </div>
+</section>
+    <!-- TASKS -->
+    <section id="view-tasks" class="view hidden">
+      <div class="toolbar">
+        <input id="taskTitle" placeholder="Task title">
+        <button onclick="addTask()">Add</button>
+        <button onclick="runPending()">Run Pending</button>
+        <a href="/planner" class="planner-link">Open Planner</a>
+      </div>
+      <div id="tasks"></div>
+    </section>
+
+    <!-- MEMORY -->
+    <section id="view-memory" class="view hidden">
+      <div class="toolbar">
+        <input id="memQuery" placeholder="Search memory">
+        <button onclick="searchMemory()">Search</button>
+      </div>
+      <pre id="memResult"></pre>
+      <div id="memories"></div>
+    </section>
+
+    <!-- FILES -->
+    <section id="view-files" class="view hidden">
+      <div class="toolbar">
+        <input id="filePath" placeholder="Folder path">
+        <button onclick="loadFiles()">Open</button>
+      </div>
+      <div id="files"></div>
+    </section>
+
+  </main>
+
+  <!-- RIGHT PANEL -->
+  <aside class="rightbar">
+    <div class="panel-title">Voice</div>
+    <div id="voiceBubble">Ready.</div>
+
+    <div class="panel-title mt16">Active Models</div>
+    <div id="activeModels"></div>
+  </aside>
+
+</div>
+
+<!-- SETTINGS DRAWER -->
+<div id="settingsDrawer" class="drawer hidden">
+  <h3>Profiles</h3>
+
+  <select id="profileList"></select>
+  <input id="profileName" placeholder="Profile name">
+
+  <label>System Prompt</label>
+  <textarea id="systemPrompt"></textarea>
+
+  <label>Preferred Provider</label>
+  <select id="prefProvider">
+    <option value="auto">auto</option>
+    <option value="local">local</option>
+    <option value="cloud">cloud</option>
+  </select>
+
+  <button onclick="saveProfile()">Save</button>
+  <button onclick="deleteProfile()">Delete</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

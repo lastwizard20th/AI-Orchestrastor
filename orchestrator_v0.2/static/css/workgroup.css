@@ -1,0 +1,57 @@
+/* static/css/workgroup.css */
+body{
+    margin:0;
+    background:#0b1220;
+    color:#fff;
+    font-family:Arial;
+}
+.topbar{
+    padding:10px;
+    display:flex;
+    gap:10px;
+    background:#111827;
+}
+#canvasWrap{
+    position:relative;
+    height:60vh;
+}
+#canvas,#lines{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+.node{
+    position:absolute;
+    width:180px;
+    padding:10px;
+    border-radius:10px;
+    background:#1e293b;
+    user-select:none;
+}
+.node.core{background:#2563eb;}
+.node.sub{background:#475569;}
+.node.agent{background:#16a34a;}
+.node.voice{background:#9333ea;}
+.node.vision{background:#ea580c;}
+
+.pin{
+    width:12px;height:12px;border-radius:50%;
+    background:#fff;position:absolute;top:50%;
+}
+.pin.out{right:-6px;}
+.pin.in{left:-6px;}
+
+.panel{
+    height:40vh;
+    overflow:auto;
+    padding:12px;
+    border-top:1px solid #334155;
+}
+.log{
+    background:#111827;
+    padding:8px;
+    margin:8px 0;
+    border-radius:8px;
+}
+pre{white-space:pre-wrap;}

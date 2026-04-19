@@ -1,0 +1,100 @@
+2026-04-19 00:24:34,387 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.12:5000
+2026-04-19 00:24:34,387 INFO [33mPress CTRL+C to quit[0m
+2026-04-19 00:24:44,073 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET / HTTP/1.1" 200 -
+2026-04-19 00:24:44,159 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET /static/css/app.css HTTP/1.1" 200 -
+2026-04-19 00:24:44,189 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-04-19 00:24:44,210 ERROR Exception on /tasks [GET]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\routes\tasks.py", line 15, in tasks
+    return jsonify(list_tasks())
+                   ^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\services\tasks.py", line 13, in list_tasks
+    c=get_conn(); rows=c.execute('SELECT * FROM tasks ORDER BY id DESC').fetchall(); c.close()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: tasks
+2026-04-19 00:24:44,212 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET /memories HTTP/1.1" 200 -
+2026-04-19 00:24:44,213 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "[35m[1mGET /tasks HTTP/1.1[0m" 500 -
+2026-04-19 00:24:44,218 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET /profiles HTTP/1.1" 200 -
+2026-04-19 00:24:44,219 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "GET /providers HTTP/1.1" 200 -
+2026-04-19 00:24:44,225 ERROR Exception on /history/default [GET]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\routes\chat.py", line 27, in history
+    return jsonify(list_history(session_id))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\services\history_service.py", line 13, in list_history
+    rows = conn.execute(
+           ^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: history
+2026-04-19 00:24:44,226 INFO 127.0.0.1 - - [19/Apr/2026 00:24:44] "[35m[1mGET /history/default HTTP/1.1[0m" 500 -
+2026-04-19 00:25:14,167 INFO 127.0.0.1 - - [19/Apr/2026 00:25:14] "GET /providers HTTP/1.1" 200 -
+2026-04-19 00:26:10,069 ERROR Exception on /history/default [GET]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\routes\chat.py", line 27, in history
+    return jsonify(list_history(session_id))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\services\history_service.py", line 13, in list_history
+    rows = conn.execute(
+           ^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: history
+2026-04-19 00:26:10,070 INFO 127.0.0.1 - - [19/Apr/2026 00:26:10] "[35m[1mGET /history/default HTTP/1.1[0m" 500 -
+2026-04-19 00:26:10,910 ERROR Exception on /history/default [GET]
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\routes\chat.py", line 27, in history
+    return jsonify(list_history(session_id))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\ProjectAI\orchestrator_v0.2\services\history_service.py", line 13, in list_history
+    rows = conn.execute(
+           ^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: history
+2026-04-19 00:26:10,911 INFO 127.0.0.1 - - [19/Apr/2026 00:26:10] "[35m[1mGET /history/default HTTP/1.1[0m" 500 -

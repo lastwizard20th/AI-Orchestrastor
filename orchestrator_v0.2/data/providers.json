@@ -1,0 +1,18 @@
+{
+  "local-ollama": {
+    "name": "local-ollama",
+    "type": "ollama",
+    "url": "http://localhost:11434/api/generate",
+    "api_key": "",
+    "model": "qwen3.5:9b",
+    "enabled": true
+  },
+  "gemini-main": {
+    "name": "gemini-main",
+    "type": "gemini",
+    "url": "",
+    "api_key": "",
+    "model": "gemini-2.0-flash",
+    "enabled": true
+  }
+}

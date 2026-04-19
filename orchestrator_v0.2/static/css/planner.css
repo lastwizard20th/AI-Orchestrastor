@@ -1,0 +1,11 @@
+body{margin:0;background:#0b1220;color:#fff;font-family:Arial}
+.topbar{display:flex;gap:10px;align-items:center;padding:10px;background:#111827;position:sticky;top:0;z-index:5}
+#plannerWrap{position:relative;height:calc(100vh - 52px);overflow:auto}
+#planner{display:grid;grid-template-columns:80px repeat(7,1fr)}
+.head,.time,.cell{border:1px solid #1f2937;min-height:24px;position:relative}
+.head{background:#111827;position:sticky;top:0;z-index:4;padding:4px;text-align:center}.today{background:#1e3a8a}
+.time{font-size:12px;padding:4px;background:#0f172a}.cell{height:24px}
+.block{position:absolute;left:2px;right:2px;border-radius:4px;padding:4px;font-size:12px;cursor:move;overflow:hidden}
+.resize{position:absolute;left:0;right:0;bottom:0;height:6px;cursor:ns-resize;background:rgba(255,255,255,.25)}
+.queue{background:#334155}.ongoing{background:#2563eb}.done{background:#16a34a}.cancel{background:#dc2626}
+#nowLine{position:absolute;left:80px;right:0;height:2px;background:red;z-index:6}
